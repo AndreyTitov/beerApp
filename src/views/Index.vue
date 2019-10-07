@@ -1,11 +1,12 @@
 <template>
     <div class="main-wrapper">
         <Header></Header>
-        <div class="beer-wrapper wrapper">
+        <router-view></router-view>
+        <!-- <div class="beer-wrapper wrapper">
             <template v-for="item in getData">
                 <Beers :key="item.id" :beer="item"></Beers>
             </template>
-        </div>
+        </div> -->
     </div>
 </template>
 

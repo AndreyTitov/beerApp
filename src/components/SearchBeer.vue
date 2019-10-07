@@ -6,20 +6,21 @@
             v-model="search" 
             onfocus="this.placeholder=''" 
             onblur="this.placeholder='search by name'"
-            @blur="showBeers = !showBeers">
+            @blur="hideBeers">
         <transition name="animated" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="search-data__list"
                 v-if="this.showBeers">
                 <div :key="index" 
                     v-for="(beers, index) in getDataList"
-                    class="search-data__item"
-                    @click="watchTheProduct(e)">
-                    <div class="search-data__item-img__wrapper">
-                        <img :src="beers.image_url" alt="img" class="search-data__item-img">
-                    </div>
-                    <div class="search-data__item-name__wrapper">
-                        <p class="search-data__item-name">{{beers.name}}</p>
-                    </div>
+                    class="search-data__item">
+                    <!-- <router-link :to="{name: 'beer', params: {id: beers.id} }"> -->
+                        <div class="search-data__item-img__wrapper">
+                            <img :src="beers.image_url" alt="img" class="search-data__item-img">
+                        </div>
+                        <div class="search-data__item-name__wrapper">
+                            <p class="search-data__item-name">{{beers.name}}</p>
+                        </div>
+                    <!-- </router-link> -->
                 </div>
             </div>
         </transition>
@@ -41,7 +42,10 @@ export default {
         },
     },
     methods: {
-        
+        hideBeers() {
+            this.showBeers = false;
+            this.search = '';
+        }
     },
     watch: {
         search(val) {
@@ -57,7 +61,7 @@ export default {
             } else {
                 this.showBeers = false;
             }
-        }
+        },
     },
     created() {
         this.$store.dispatch('addBeerDataList');
@@ -69,6 +73,7 @@ export default {
     .search {
         &-wrapper {
             position: relative;
+            z-index: 12;
         }
 
         &-data__list {

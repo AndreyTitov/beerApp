@@ -19,9 +19,9 @@
                     <div class="menu-content"
                         v-if="showMenu">
                         <ul class="menu-content__list">
-                            <li class="menu-content__item">Menu 1</li>
-                            <li class="menu-content__item">Menu 2</li>
-                            <li class="menu-content__item">Menu 3</li>
+                            <router-link @click.native="closeMenu" to="/" class="menu-content__link">Home</router-link>
+                            <router-link @click.native="closeMenu" to="/products" class="menu-content__link">Products</router-link>
+                            <router-link @click.native="closeMenu" to="" class="menu-content__link">Menu 3</router-link>
                         </ul>
                     </div>
                 </transition>
@@ -86,7 +86,7 @@ export default {
 
             &__button {
                 cursor: pointer;
-                z-index: 9;
+                z-index: 12;
                 position: absolute;
                 right: 10px;
             }
@@ -104,7 +104,7 @@ export default {
         &-content {
             position: absolute;
             background: #fff;
-            z-index: 9;
+            z-index: 14;
             width: 50%;
             height: 100%;
             right: 0;
@@ -113,6 +113,12 @@ export default {
             &__list {
                 list-style-type: none;
                 padding: 0;
+            }
+
+            &__link {
+                display: block;
+                text-decoration: none;
+                padding: 10px;
             }
 
             &__item {
@@ -126,6 +132,7 @@ export default {
             height: 100%;
             top: 0;
             left: 0;
+            z-index: 10;
             background: rgba(0,0,0, 0.5);
         }
     }
