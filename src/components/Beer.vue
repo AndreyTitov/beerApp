@@ -94,16 +94,13 @@ export default {
             beers: this.$store.getters.getDataBeer,
             showFood: false,
             showIngr: false,
+            abvStatus: 6,
         }
     },
     created() {
-        this.$store.dispatch('addBeerData');
-
-        let postId = this.$route.params.id;
-        const beers = this.$store.getters.getDataBeer;
-        console.log(beers);
-
-        this.beer = this.$store.getters.getDataBeer[postId];
+        let beerId = this.$route.params.id;
+        this.beer = this.$store.getters.getDataBeerList[beerId];
+        // console.log(this.beer);
     }
 }
 </script>

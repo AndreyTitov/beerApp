@@ -18,11 +18,11 @@
                 <transition name="animated" enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutRight">
                     <div class="menu-content"
                         v-if="showMenu">
-                        <ul class="menu-content__list">
+                        <nav class="menu-content__list">
                             <router-link @click.native="closeMenu" to="/" class="menu-content__link">Home</router-link>
                             <router-link @click.native="closeMenu" to="/products" class="menu-content__link">Products</router-link>
                             <router-link @click.native="closeMenu" to="" class="menu-content__link">Menu 3</router-link>
-                        </ul>
+                        </nav>
                     </div>
                 </transition>
                 <div class="menu-overlay"

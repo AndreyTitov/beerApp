@@ -13,14 +13,14 @@
                 <div :key="index" 
                     v-for="(beers, index) in getDataList"
                     class="search-data__item">
-                    <!-- <router-link :to="{name: 'beer', params: {id: beers.id} }"> -->
+                    <router-link :to="{name: 'beer', params: {id: beers.id} }">
                         <div class="search-data__item-img__wrapper">
                             <img :src="beers.image_url" alt="img" class="search-data__item-img">
                         </div>
                         <div class="search-data__item-name__wrapper">
                             <p class="search-data__item-name">{{beers.name}}</p>
                         </div>
-                    <!-- </router-link> -->
+                    </router-link>
                 </div>
             </div>
         </transition>
@@ -62,9 +62,6 @@ export default {
                 this.showBeers = false;
             }
         },
-    },
-    created() {
-        this.$store.dispatch('addBeerDataList');
     },
 }
 </script>

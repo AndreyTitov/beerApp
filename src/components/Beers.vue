@@ -39,17 +39,12 @@ export default {
             abvStatus: 6,
         }
     },
-    props: {
-        beer: Object,
-    },
     computed: {
         getData() {
-                    return this.$store.getters.getDataBeer;
-                }
+            console.log(this.$store.getters.getDataBeerList);
+            return this.$store.getters.getDataBeer;
+        }
     },
-    created() {
-
-    }
 }
 </script>
 

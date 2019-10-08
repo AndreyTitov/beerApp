@@ -8,6 +8,7 @@ import Beer from './components/Beer';
 Vue.use(Router);
 
 export default new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -20,7 +21,7 @@ export default new Router({
             component: Beers,
         },
         {
-            path: '/beer/:id',
+            path: '/products/beer/:id',
             name: 'beer',
             component: Beer,
         },

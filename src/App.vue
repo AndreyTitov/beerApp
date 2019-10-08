@@ -8,10 +8,14 @@
 import Index from './views/Index';
 
 export default {
-  name: 'app',
-  components: {
-    Index,
-  },
+    name: 'app',
+    components: {
+      Index,
+    },
+    created() {
+        this.$store.dispatch('addBeerData');
+        this.$store.dispatch('addBeerDataList');
+    }
 };
 </script>
 

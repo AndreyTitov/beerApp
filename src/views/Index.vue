@@ -1,12 +1,9 @@
 <template>
     <div class="main-wrapper">
         <Header></Header>
-        <router-view></router-view>
-        <!-- <div class="beer-wrapper wrapper">
-            <template v-for="item in getData">
-                <Beers :key="item.id" :beer="item"></Beers>
-            </template>
-        </div> -->
+        <transition name="animated" enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
@@ -21,14 +18,6 @@ export default {
         Beers,
         Header,
     },
-    computed: {
-        getData() {
-            return this.$store.getters.getDataBeer;
-        }
-    },
-    created() {
-        this.$store.dispatch('addBeerData');
-    }
 }
 </script>
 
