@@ -8,7 +8,7 @@
                 <div class="menu-search__wrapper">
                     <transition name="animated" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <Search v-if="showSearch"></Search>
-                    </transition>
+                    </transition> 
                     <i class="material-icons menu-search__button" 
                         @click="showSearch = !showSearch">search</i>
                 </div>
@@ -21,7 +21,7 @@
                         <nav class="menu-content__list">
                             <router-link @click.native="closeMenu" to="/" class="menu-content__link">Home</router-link>
                             <router-link @click.native="closeMenu" to="/products" class="menu-content__link">Products</router-link>
-                            <router-link @click.native="closeMenu" to="" class="menu-content__link">Menu 3</router-link>
+                            <router-link @click.native="closeMenu" to="/" class="menu-content__link">Menu 3</router-link>
                         </nav>
                     </div>
                 </transition>

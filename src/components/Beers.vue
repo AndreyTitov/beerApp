@@ -2,7 +2,7 @@
     <div class="beer-wrapper wrapper">
         <div class="beer-item" 
             :key="index" 
-            v-for="(beer, index) in getData">
+            v-for="(beer, index) in beer">
             <div class="title-wrapper">
                 <h3 class="title">{{beer.name}}</h3>
             </div>
@@ -21,29 +21,28 @@
                 <p class="contrib">Contributed by: <b>{{beer.contributed_by}}</b></p>
             </div>
             <div class="more-btn__wrapper">
-                <router-link :to="{name: 'beer', params: {id: index} }" class="more-btn">More</router-link>
+                <router-link :to="{name: 'beer', params: {id: beer.id - 1} }" class="more-btn">More</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import {mapGetters, mapState} from 'vuex';
 
 export default {
     name: 'Beers',
     data() {
         return {
-            beerData: [],
             showFood: false,
             showIngr: false,
             abvStatus: 6,
         }
     },
     computed: {
-        getData() {
-            console.log(this.$store.getters.getDataBeerList);
-            return this.$store.getters.getDataBeer;
-        }
+        ...mapState([
+            'beer'
+        ]),
     },
 }
 </script>
@@ -83,7 +82,13 @@ export default {
 
     .title {
         font-size: 26px;
-        margin: 10px 0;
+        margin: 0;
+
+        &-wrapper {
+            margin: 10px 0;
+            height: 55px;
+            vertical-align: middle;
+        }
     }
 
     .img {
@@ -151,6 +156,8 @@ export default {
     }
 
     .brewers-tips-wrapper {
+        height: 150px;
+
         p b {
             font-size: 22px;
         }

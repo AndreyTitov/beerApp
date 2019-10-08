@@ -9,11 +9,10 @@
             @blur="hideBeers">
         <transition name="animated" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="search-data__list"
-                v-if="this.showBeers">
+                v-if="showBeers">
                 <div :key="index" 
-                    v-for="(beers, index) in getDataList"
-                    class="search-data__item">
-                    <router-link :to="{name: 'beer', params: {id: beers.id} }">
+                    v-for="(beers, index) in getDataList">
+                    <router-link :to="{name: 'beer', params: {id: beers.id - 1} }" class="search-data__item">
                         <div class="search-data__item-img__wrapper">
                             <img :src="beers.image_url" alt="img" class="search-data__item-img">
                         </div>
@@ -103,6 +102,8 @@ export default {
 
             &-name {
                 text-align: left;
+                text-decoration: none;
+                color: #000;
 
                 &__wrapper {
                     width: 70%;
